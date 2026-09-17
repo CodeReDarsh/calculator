@@ -30,7 +30,10 @@ body {
   width: 500px;
 }
 
-
+#operand-and-result-display {
+  height: 45px;
+  font-size: 40px;
+}
 
 .row {
   margin-bottom: 10px;
