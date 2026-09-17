@@ -6,18 +6,21 @@
 
 body {
   display: flex;
-  justify-content: center;
+  align-items: center;
   font-family: "Courier New", Courier, monospace;
   background: #444746;
   color: #bfbfbf;
+  flex-direction: column;
   font-size: 20px;
 }
 
 #calculator {
   background: #22242a;
-  margin-block: 150px;
+  margin-top: 150px;
+  margin-bottom: 50px;
   padding: 30px 20px 10px 20px;
   border-radius: 50px;
+  max-width: 542px;
   border: solid 1px #bfbfbf;
 }
 
