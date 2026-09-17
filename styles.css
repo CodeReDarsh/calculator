@@ -57,12 +57,25 @@ button {
   color: inherit;
   font-family: inherit;
   font-size: inherit;
+  transition: background 0.1s;
+}
+
+button:hover {
+  background: #444650;
 }
 
 .special {
   background: #2c303d;
 }
 
+.special:hover {
+  background: #383d4e;
+}
+
 .blue {
-  background: #3113c2;
+  background: #230d8c;
+}
+
+.blue:hover {
+  background: #2910a6;
 }
