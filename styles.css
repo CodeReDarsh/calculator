@@ -64,6 +64,10 @@ button:hover {
   background: #444650;
 }
 
+button:active {
+  border: 1px solid #787878;
+}
+
 .special {
   background: #2c303d;
 }
