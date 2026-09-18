@@ -8,15 +8,34 @@ const divide = (a, b) => a / b; // divide a by b
 let firstOperand = 0;
 let secondOperand = 0;
 let operator = "+";
-const operators = {
-  "+": add,
-  "−": subtract,
-  "×": multiply,
-  "÷": divide,
-  "=": updateDisplay,
-};
 
-function updateDisplay(container, val) {
+function operate(a, b, operator) {
+  let result = 0;
+  a = Number(a);
+  b = Number(b);
+  switch (operator) {
+    case "÷":
+      if (b === 0) alert("You can't divide by 0 silly! That's undefined!");
+      else result = divide(a, b);
+      break;
+
+    case "×":
+      result = multiply(a, b);
+      break;
+
+    case "−":
+      result = subtract(a, b);
+      break;
+
+    case "+":
+      result = add(a, b);
+      break;
+
+    default:
+      break;
+  }
+  return result;
+}
 
 }
 
