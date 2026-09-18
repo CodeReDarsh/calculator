@@ -1,1 +1,41 @@
 "use strict";
+
+const add = (a, b) => a + b;
+const subtract = (a, b) => a - b; // subtract b from a
+const multiply = (a, b) => a * b;
+const divide = (a, b) => a / b;
+let operatorFlag = false;
+let eqvaluateFlag = false;
+
+let firstOperand = 0;
+let secondOperand = 0;
+let operator = "+";
+const operators = {
+  "+": add,
+  "−": subtract,
+  "×": multiply,
+  "÷": divide,
+  "=": updateDisplay,
+};
+
+function updateDisplay(container, val) {
+
+}
+
+function operate(a, b, operator) {
+  let result;
+  if (operator in operators) result = operators[operator](a, b);
+  return result;
+}
+
+function handleClick(e) {
+  const val = e.target.value;
+  if (val in operators) {
+
+  }
+}
+
+const eqDisplay = document.querySelector("#equation");
+const resultDisplay = document.querySelector("#operand-and-result-display");
+const buttons = document.querySelector("#btns");
+buttons.addEventListener("click", handleClick);
