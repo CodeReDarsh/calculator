@@ -3,9 +3,7 @@
 const add = (a, b) => a + b;
 const subtract = (a, b) => a - b; // subtract b from a
 const multiply = (a, b) => a * b;
-const divide = (a, b) => a / b;
-let operatorFlag = false;
-let eqvaluateFlag = false;
+const divide = (a, b) => a / b; // divide a by b
 
 let firstOperand = 0;
 let secondOperand = 0;
