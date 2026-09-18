@@ -32,11 +32,9 @@ body {
   margin-bottom: 20px;
   width: 500px;
   text-align: end;
-}
-
-#operand-and-result-display {
-  height: 45px;
+  overflow: hidden;
   font-size: 40px;
+  max-height: 60px;
 }
 
 .row {
@@ -68,11 +66,11 @@ button:active {
   border: 1px solid #787878;
 }
 
-.special {
+.operator {
   background: #2c303d;
 }
 
-.special:hover {
+.operator:hover {
   background: #383d4e;
 }
 
@@ -82,4 +80,9 @@ button:active {
 
 .blue:hover {
   background: #2910a6;
+}
+
+.blue:active {
+  background: #3a15e9;
+  border: 0;
 }
