@@ -17,7 +17,8 @@ returns a result
 - [ ] Display, for now filled with dummy text
 - [ ] 2 operand variables, 1 operator variable
 - [ ] Only single pair of numbers to be evaluated at a time
-- [ ] answers with long decimals should be rounded to prevent display overflow
+- [ ] answers with long decimals should be rounded to prevent 14 decimal places to prevent priceision
+errors and display overflow.
 - [ ] when result is displayed pressing a new digit should clear the result and start a new calculation
 - [ ] support floating point math with `.` button, prevent users from pressing more than once though
 Disable the button if input already has the number
