@@ -52,7 +52,6 @@ function handleClick(e) {
   }
 }
 
-const eqDisplay = document.querySelector("#equation");
-const resultDisplay = document.querySelector("#operand-and-result-display");
+const display = document.querySelector("#display-container");
 const buttons = document.querySelector("#btns");
 buttons.addEventListener("click", handleClick);
