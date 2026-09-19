@@ -98,16 +98,17 @@ function handleOperator(op) {
     operator = "+";
     calculate();
   }
-  operator = op;
   if (secondOperand === "") {
     console.log(
       "No secondOperand specified",
       secondOperand,
       "returning while updating operator.",
     );
+    operator = op;
     return;
   }
   calculate();
+  operator = op;
 }
 
 function calculate() {
