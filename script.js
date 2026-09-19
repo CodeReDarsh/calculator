@@ -7,16 +7,16 @@ const divide = (a, b) => a / b; // divide a by b
 
 let firstOperand = "0";
 let secondOperand = "";
-let operator = "";
+let previousOperator = "";
 
-function operate(a, b, operator) {
+function operate(a, b, previousOperator) {
   let result = 0;
   a = Number(a);
   b = Number(b);
-  switch (operator) {
+  switch (previousOperator) {
     case "÷":
       if (b === 0) {
-        alert("You can't divide by 0 silly! That's undefined!");
+        alert("You can't divide by 0 silly! That's undefined! Resetting calculator.");
         result = NaN;
       } else result = divide(a, b);
       break;
@@ -66,7 +66,7 @@ function clearEntry() {
 function allClear() {
   firstOperand = "0";
   secondOperand = "";
-  operator = "";
+  previousOperator = "";
   updateDisplay(firstOperand);
 }
 
@@ -77,74 +77,71 @@ function withinPrecision(numString) {
   );
 }
 
+let firstEquals = true;
+
 function addDigitOrDecimal(digitOrDecimal) {
-  if (withinPrecision(secondOperand)) {
+  if (previousOperator === "=") {
+    if (
+      digitOrDecimal === "." &&
+      !firstOperand.includes(".") &&
+      withinPrecision(firstOperand)
+    ) {
+      firstOperand += digitOrDecimal;
+      firstEquals = false;
+    } else if (digitOrDecimal !== ".") {
+      if (!firstEquals && withinPrecision(firstOperand)) {
+        firstOperand += digitOrDecimal;
+      } else {
+        firstOperand = digitOrDecimal;
+        firstEquals = false;
+      }
+    }
+    updateDisplay(firstOperand);
+  } else if (withinPrecision(secondOperand)) {
     secondOperand += digitOrDecimal;
     updateDisplay(secondOperand);
   }
 }
 
-function handleOperator(op) {
-  console.log("in handleOperator");
-  console.log(
-    "firstOperand",
-    firstOperand,
-    "secondOperand",
-    secondOperand,
-    "operator",
-    operator,
-  );
-  if (operator === "" && secondOperand !== "") {
-    operator = "+";
+function handleOperator(newOperator) {
+  console.log("before calc prevop:", previousOperator, "newop:", newOperator);
+  if (previousOperator === "") {
+    previousOperator = "+";
+  }
+  if (previousOperator !== "=") {
     calculate();
+    firstEquals = true;
+  } else {
+    firstEquals = false;
   }
-  if (secondOperand === "") {
-    console.log(
-      "No secondOperand specified",
-      secondOperand,
-      "returning while updating operator.",
-    );
-    operator = op;
-    return;
-  }
-  calculate();
-  operator = op;
+  previousOperator = newOperator;
+  console.log("after calc prevop:", previousOperator, "newop:", newOperator);
 }
 
 function calculate() {
-  console.log("in calculate");
-  console.log(
-    "firstOperand",
-    firstOperand,
-    "secondOperand",
-    secondOperand,
-    "operator",
-    operator,
-  );
-  if (operator !== "" && secondOperand !== "") {
-    let temp = operate(firstOperand, secondOperand, operator);
+  if (previousOperator !== "" && secondOperand !== "") {
+    let temp = operate(firstOperand, secondOperand, previousOperator);
     if (isNaN(temp)) return;
     firstOperand = temp;
     secondOperand = "";
     updateDisplay(firstOperand);
   }
-  if (operator === "=") {
-    operator = "";
-    secondOperand = "";
-  }
 }
 
 function handleClick(e) {
   console.log(e.target.value);
-  if (e.target.value === "CE") clearEntry();
-  else if (e.target.value === "AC") allClear();
-  else if (e.target.value === "=") calculate();
-  else if (/^[÷×−+]$/.test(e.target.value)) handleOperator(e.target.value);
-  else if (
+  if (e.target.value === "CE") {
+    clearEntry();
+  } else if (e.target.value === "AC") {
+    allClear();
+  } else if (/^[÷×−+=]$/.test(e.target.value)) {
+    handleOperator(e.target.value);
+  } else if (
     (e.target.value === "." && !secondOperand.includes(".")) ||
     (e.target.value >= 0 && e.target.value <= 9)
-  )
+  ) {
     addDigitOrDecimal(e.target.value);
+  }
 }
 
 const display = document.querySelector("#display-container");
