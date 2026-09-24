@@ -1,6 +1,6 @@
 # calculator
 
-A basic web-based calculator. Follows calculation processing similar to [CalculatorSoup's basic calculator](https://www.calculatorsoup.com/calculators/math/basic.php).
+A basic web-based calculator. Follows calculation processing similar to <a href="https://www.calculatorsoup.com/calculators/math/basic.php" target="_blank">CalculatorSoup's basic calculator</a>.
 Some UI color schemes and element designs were inspired from google search's calculator.
 
 Implemented:
@@ -16,17 +16,18 @@ Implemented:
 - [x] Display for currently inputted numbers and calculator.
 - [x] Clear Entry button.
 - [x] All Clear button.
-- [x] 2 operand variables, 1 operator variable
-- [x] Only single pair of numbers to be evaluated at a time
-- [x] answers with long decimals should be rounded to prevent 14 decimal places to prevent priceision
-      errors and display overflow.
-- [x] when result is displayed pressing a new digit should clear the result and start a new calculation
-- [x] support floating point math with `.` button, prevent users from pressing more than once though
-      Disable the button if input already has the number
+- [x] Only single pair of numbers is evaluated at a time.
+- [x] answers with long decimals are rounded to 14 decimal places to prevent precision errors
+      and display overflow.
+- [x] when result is displayed pressing a new digit clears the result and starts a new calculation
+- [x] supports floating point math with `.` button, preventing users from entering more than one decimal point.
+- [x] Added keyboard input support. See commit 5c8effd for more details.
+
+Special thanks to <a href="https://www.theodinproject.com/" target="_blank">The Odin Project</a> for their curriculum.
 
 ---
 
-Notes:
+Dev Notes:
 should only evaluate 2 numbers' result at a time
 when you press an operator, it should calculate the result and display it
 
@@ -41,5 +42,3 @@ when you press an operator, it should calculate the result and display it
   - if you press a number, start a completely new calculation
     op1 = new number, operator = "", op2 = ""
   - if you press an operator, continue the calculation with the result as a new operand. op1 = result, operator set to symbol, but if = is pressesd again then it stays blank.
-
-
