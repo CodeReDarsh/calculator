@@ -130,22 +130,25 @@ function calculate() {
   }
 }
 
-function handleClick(e) {
-  console.log(e.target.value);
-  if (e.target.value === "CE") {
+function handleInput(input) {
+  console.log(input);
+  if (input === "CE" || input === "Backspace") {
     clearEntry();
-  } else if (e.target.value === "AC") {
+  } else if (input === "AC" || input === "Delete") {
     allClear();
-  } else if (/^[÷×−+=]$/.test(e.target.value)) {
-    handleOperator(e.target.value);
+  } else if (input === "Enter") {
+    handleOperator("=");
+  } else if (/^[\+\-\*\/=]$/.test(input)) {
+    handleOperator(input);
   } else if (
-    (e.target.value === "." && !secondOperand.includes(".")) ||
-    (e.target.value >= 0 && e.target.value <= 9)
+    (input === "." && !secondOperand.includes(".")) ||
+    (input >= 0 && input <= 9)
   ) {
-    addDigitOrDecimal(e.target.value);
+    addDigitOrDecimal(input);
   }
 }
 
 const display = document.querySelector("#display-container");
 const buttons = document.querySelector("#btns");
-buttons.addEventListener("click", handleClick);
+buttons.addEventListener("click", (e) => handleInput(e.target.value));
+document.addEventListener("keydown", (e) => handleInput(e.key));
