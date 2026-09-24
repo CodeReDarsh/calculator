@@ -21,7 +21,7 @@ Implemented:
       and display overflow.
 - [x] when result is displayed pressing a new digit clears the result and starts a new calculation
 - [x] supports floating point math with `.` button, preventing users from entering more than one decimal point.
-- [x] Added keyboard input support. See commit 5c8effd for more details.
+- [x] Added keyboard input support. See commit [`5c8effd`](https://github.com/CodeReDarsh/calculator/commit/5c8effd12d46b369d96f8282b3337fe6ed0b193c) for more details.
 
 Special thanks to <a href="https://www.theodinproject.com/" target="_blank">The Odin Project</a> for their curriculum.
 
@@ -41,4 +41,4 @@ when you press an operator, it should calculate the result and display it
 - if you press = it should evaluate result and display it. (only possible when op1, operator and op2 exist) From here
   - if you press a number, start a completely new calculation
     op1 = new number, operator = "", op2 = ""
-  - if you press an operator, continue the calculation with the result as a new operand. op1 = result, operator set to symbol, but if = is pressesd again then it stays blank.
+  - if you press an operator, continue the calculation with the result as a new operand. op1 = result, operator set to symbol, but if = is pressed again then it stays blank.
