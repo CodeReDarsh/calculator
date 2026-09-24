@@ -14,18 +14,20 @@ function operate(a, b, previousOperator) {
   a = Number(a);
   b = Number(b);
   switch (previousOperator) {
-    case "÷":
+    case "/":
       if (b === 0) {
-        alert("You can't divide by 0 silly! That's undefined! Resetting calculator.");
+        alert(
+          "You can't divide by 0 silly! That's undefined! Resetting calculator.",
+        );
         result = NaN;
       } else result = divide(a, b);
       break;
 
-    case "×":
+    case "*":
       result = multiply(a, b);
       break;
 
-    case "−":
+    case "-":
       result = subtract(a, b);
       break;
 
